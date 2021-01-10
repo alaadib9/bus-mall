@@ -1,0 +1,32 @@
+  body {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+ img {
+
+    max-width: 200px;
+        max-height: 200px;
+        display: inline-block;
+        margin-left: 100px;
+        margin-top: 50px;
+        padding-bottom: 50px;
+        background-color: white;
+      }
+
+body {
+    background-image: url(https://images.pexels.com/photos/2344227/pexels-photo-2344227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+h1 {
+    text-align: center;
+    background-color: white;
+    color: tomato;
+    font-family: 'Montserrat', sans-serif;
+  
+}
+button:hover {
+    font-family: 'Lobster', cursive;
+    color: rgb(225, 232, 243);
+    background-color: teal;
+}
