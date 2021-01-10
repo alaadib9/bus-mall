@@ -1,10 +1,10 @@
 'use strict';
 var arrayOfimg = []; // display imag
-var leftOneImg = document.getElementById('leftOne');
-var centerOneImg = document.getElementById('centerOne');
-var rightOneImg = document.getElementById('rightOne');
-var trials = 5;
-var htmlSection = document.getElementById('element')
+var leftOneImg = document.getElementById('first');
+var centerOneImg = document.getElementById('two');
+var rightOneImg = document.getElementById('three');
+var trials = 25;
+var htmlSection = document.getElementById('element');
 
 function BusMall(nameoftheproduct, image) {
     this.nameoftheproduct = nameoftheproduct,
@@ -18,30 +18,36 @@ function BusMall(nameoftheproduct, image) {
 }
 
 function renderImg(left, center, right) {
-    var leftImag = document.createElement('img');
-    leftImag.setAttribute('src', arrayOfimg[left].url);
-    leftOneImg.append(leftImag);
-    var centerImag = document.createElement('img');
-    centerImag.setAttribute('src', arrayOfimg[center].url);
-    centerOneImg.append(centerImag);
-    var rightimag = document.createElement('img');
-    rightimag.setAttribute('src', arrayOfimg[right].url);
-    rightOneImg.append(rightimag);
-     leftOneImg.setAttribute('scr' , arrayOfimg[left].url);
-     centerOneImg.setAttribute('src' , arrayOfimg[center].url);
-     rightOneImg.setAttribute('src'  , arrayOfimg[right].url);
-
+    // var leftImag = document.createElement('img');
     // leftImag.setAttribute('src', arrayOfimg[left].url);
+    // leftOneImg.textContent = arrayOfimg[left].nameoftheproduct;
+    // arrayOfimg[left].timeShow++;
+    // leftOneImg.append(leftImag);
+    // var centerImag = document.createElement('img');
     // centerImag.setAttribute('src', arrayOfimg[center].url);
-    //  rightimag.setAttribute('src', arrayOfimg[right].url);
-    //  leftOneImg.textContent = arrayOfimg[left].nameoftheproduct;
-    //  centerOneImgr.textContent = arrayOfimg[center].nameoftheproduct;
-    //  rightOneImg.textContent = arrayOfimg[right].nameoftheproduct;
-    // renderImg(left, center, right);
+    // centerOneImg.textContent = arrayOfimg[center].nameoftheproduct;
+    // arrayOfimg[center].timeShow++;
+    // centerOneImg.append(centerImag);
+    // var rightimag = document.createElement('img');
+    // rightimag.setAttribute('src', arrayOfimg[right].url);
+    // rightOneImg.textContent = arrayOfimg[right].nameoftheproduct;
+    // arrayOfimg[right].timeShow++;
+    // rightOneImg.append(rightimag);
+     leftOneImg.setAttribute('scr' , arrayOfimg[left].url);
+     leftOneImg.textContent = arrayOfimg[left].nameoftheproduct;
+     arrayOfimg[left].timeShow++;
+     centerOneImg.setAttribute('src' , arrayOfimg[center].url);
+     centerOneImg.textContent = arrayOfimg[center].nameoftheproduct;
+     arrayOfimg[center].timeShow++;
+     rightOneImg.setAttribute('src'  , arrayOfimg[right].url);
+     rightOneImg.textContent = arrayOfimg[right].nameoftheproduct;
+     arrayOfimg[right].timeShow++;
+
+    
 
 }
 
-function Random() {
+function random() {
     var leftImage = Math.round(Math.random() * (arrayOfimg.length - 1))
 
     do {
@@ -54,7 +60,7 @@ function Random() {
 }
 
 
-function Check(objectIndicator) {
+function check(objectIndicator) {
     for (var index = 0; index < arrayOfimg.length; index++) {
         if (arrayOfimg[index].url = objectIndicator) {
             arrayOfimg[index].counter++;
@@ -67,20 +73,23 @@ function Check(objectIndicator) {
 
 }
 
-htmlSection.addEventListener('click' ,  countPress  );
 function countPress (event) {
     var targetAny = event.target.id;
     if (trials !== 0)  {
-        // if (targetAny === 'first' || targetAny === 'two' || targetAny === 'three') {
+        if (targetAny === 'first' || targetAny === 'two' || targetAny === 'three') {
             var objectIndicator = event.target.getAttribute('src');
-            Check(objectIndicator);
-           
+            check(objectIndicator);
+            random();
         } else {
         htmlSection.removeEventListener ('click' ,  countPress);
         console.log(arrayOfimg);
-    }   Random();
+     
+    }   
 
 }
+}
+
+
 
 
 
@@ -95,7 +104,7 @@ var boots = new BusMall('boots', 'boots.jpg');
 var breakfast = new BusMall('breakfast', 'breakfast.jpg');
 var bubblegum = new BusMall('bubblegum', 'bubblegum.jpg');
 var chair = new BusMall('chair', 'chair.jpg');
-var cthulhu = new BusMall('cthulhu', ' cthulhu.jpg');
+var cthulhu = new BusMall('cthulhu', 'cthulhu.jpg');
 var dog = new BusMall ('dog-duck', 'dog-duck.jpg')
 var dragon = new BusMall('dragon', 'dragon.jpg');
 var pen = new BusMall('pen', 'pen.jpg');
@@ -108,8 +117,5 @@ var uni = new BusMall('unicorn', 'unicorn.jpg');
 var usb = new BusMall('usb', 'usb.gif');
 var water = new BusMall('water-can', 'water-can.jpg');
 var wine = new BusMall('wine-glass', 'wine-glass.jpg');
-
-
-
-Random();
-
+random();
+htmlSection.addEventListener('click' ,  countPress );
