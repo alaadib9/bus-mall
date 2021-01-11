@@ -1,18 +1,7 @@
   body {
         text-align: center;
-        margin: 0;
         padding: 0;
-      }
-
- img {
-
-    max-width: 200px;
-        max-height: 200px;
-        display: inline-block;
-        margin-left: 100px;
-        margin-top: 50px;
-        padding-bottom: 50px;
-        background-color: white;
+        margin-left: 20px;
       }
 
 body {
@@ -30,3 +19,23 @@ button:hover {
     color: rgb(225, 232, 243);
     background-color: teal;
 }
+
+section div {
+    padding: 2px;
+    float: left;
+    width: 30%;
+    margin-right:10px;
+    
+  }
+
+
+  img {
+    max-height: 200px;
+    max-width: 100%;
+    
+  }
+
+  .but {
+      background-color: darkgoldenrod;
+      color: darkgray;
+  }
