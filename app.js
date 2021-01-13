@@ -23,21 +23,6 @@ function BusMall(nameoftheproduct, image) {
 }
 
 
-
-
-
-// /// print the stored data
-
-// function getStorage() {
-//     var st = localStorage.getItem('product');
-//     if (st) {
-//         arrayOfimg = JSON.parse(st);
-
-//         random();
-
-//     }
-// }
-
 function renderImg(left, center, right) {
 
     leftOneImg.setAttribute('src', arrayOfimg[left].url);
@@ -57,7 +42,7 @@ function renderChart() {
     var imgName = [];
     var imgCount = [];
     var click = [];
-   
+
     for (var i = 0; i < arrayOfimg.length; i++) {
 
         imgName.push(arrayOfimg[i].nameoftheproduct);
@@ -121,8 +106,8 @@ function renderChart() {
                     borderWidth: 1
                 },
                 {
-                    label: 'Time shown for the Goat',
-                    data: click, // array of values (count for each goat when it was clicked)
+                    label: 'Time shown',
+                    data: click,
                     backgroundColor: [
                         'rgba(32, 143, 217, 1)',
                         'rgba(54, 162, 235, 1)',
@@ -228,28 +213,22 @@ function savingData() {
 }
 
 
-function clearLocalStorage(){
+function clearLocalStorage() {
 
-    // localStorage.clear();
+    localStorage.clear();
 
 }
+
+clearLocalStorage();
 
 
 function checkAndRestore() {
 
-    if (localStorage.length > 0 ) { 
-        arrayOfimg= JSON.parse(localStorage.getItem('product')); 
+    if (localStorage.length > 0) {
+        arrayOfimg = JSON.parse(localStorage.getItem('product'));
         console.log(arrayOfimg);
     }
 }
-
-removedata.addEventListener('click' , clearLocalStorage )
-
-
-
-
-
-
 
 function check(objectIndicator) {
     for (var x = 0; x < arrayOfimg.length; x++) {
@@ -278,6 +257,26 @@ function countPress(event) {
 
 
 
+
+
+
+function finalResult() {
+
+    var results = document.createElement('ul');
+    view.appendChild(results);
+
+
+    for (var index = 0; index < arrayOfimg.length; index++) {
+        var productObject = document.createElement('li');
+        productObject.textContent = arrayOfimg[index].nameoftheproduct + ' had ' + arrayOfimg[index].counter + " votes, and was seen " + arrayOfimg[index].timeShow + ' times ';
+        results.appendChild(productObject);
+    
+     
+    }
+
+}
+
+
 var bag = new BusMall('bag', 'bag.jpg');
 var banana = new BusMall('banana', 'banana.jpg');
 var bathroom = new BusMall('bathroom', 'bathroom.jpg');
@@ -300,26 +299,13 @@ var water = new BusMall('water-can', 'water-can.jpg');
 var wine = new BusMall('wine-glass', 'wine-glass.jpg');
 
 
-
-
-// function storageTry() {
-//     view.innerHTML = '';
-//     for (var index = 0; index < arrayOfimg.length; index++) {
-//         var productObject = arrayOfimg[index];
-
-
-
-//         var newListItem = document.createElement('li');
-//         var par = document.createElement('p');
-//         par.textContent = `${productObject.counter}`
-
-//         newListItem.appendChild(par);
-//         view.appendChild(newListItem);
-// }
-// }
-
 var buuton = document.getElementById('but');
 buuton.addEventListener('click', renderChart);
+
+var any = document.getElementById("result");
+any.addEventListener('click', finalResult);
+
+
 
 
 random();
