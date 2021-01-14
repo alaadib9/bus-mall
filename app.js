@@ -215,7 +215,7 @@ function savingData() {
 
 function clearLocalStorage() {
 
-    localStorage.clear();
+
 
 }
 
@@ -261,7 +261,7 @@ function countPress(event) {
 
 
 function finalResult() {
-
+    
     var results = document.createElement('ul');
     view.appendChild(results);
 
